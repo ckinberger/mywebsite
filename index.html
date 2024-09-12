@@ -1,114 +1,54 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Black Metal Punk Zine</title>
+    <title>Dynamic Image Gallery</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Courier New', Courier, monospace;
             background-color: #000;
             color: #fff;
-            background-image: url('https://www.pexels.com/photo/black-and-white-photo-of-mountain-with-fog-2867015/'); /* Public domain image */
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
         }
-        .menu-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: #111;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
+        .gallery {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
+        }
+        .gallery img {
+            margin: 10px;
             border: 2px solid #fff;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            border-right: 2px solid #fff;
-            z-index: 999;
-        }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            margin: 20px 0;
-            transition: color 0.3s;
-            font-size: 0.8em;
-            text-transform: uppercase;
-        }
-        .navbar a:hover {
-            color: #ff0000;
-        }
-        .content {
-            margin-left: 80px;
-            padding: 20px;
-        }
-        .header {
-            font-size: 2em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #fff;
-            padding-bottom: 10px;
-        }
-        .section {
-            margin-bottom: 40px;
+            max-width: 200px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
-    <div class="navbar" id="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </div>
-    <div class="content">
-        <div id="home" class="section">
-            <div class="header">Welcome to My Zine</div>
-            <p>This is a modern, minimalist website template with a black metal punk zine vibe. Customize it to fit your needs.</p>
-        </div>
-        <div id="about" class="section">
-            <div class="header">About</div>
-            <p>Here you can add information about yourself or your business.</p>
-        </div>
-        <div id="services" class="section">
-            <div class="header">Services</div>
-            <p>Describe the services you offer here.</p>
-        </div>
-        <div id="contact" class="section">
-            <div class="header">Contact</div>
-            <p>Provide your contact information here.</p>
-        </div>
-    </div>
+    <h1>Dynamic Image Gallery</h1>
+    <div class="gallery" id="gallery"></div>
 
     <script>
-        function toggleMenu() {
-            var navbar = document.getElementById('navbar');
-            if (navbar.style.display === 'flex') {
-                navbar.style.display = 'none';
-            } else {
-                navbar.style.display = 'flex';
-            }
+        const folderUrl = 'https://www.dropbox.com/scl/fo/h43lpvs0cdgv8mh999sb6/AE8v2AEbnIUHeyMidqvrebQ?rlkey=a5mqdfmfljk2j5d8kr6aeh436&dl=0'; // Replace with your Dropbox folder URL
+
+        async function fetchImages() {
+            const response = await fetch(folderUrl);
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const links = doc.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"]');
+            const gallery = document.getElementById('gallery');
+
+            links.forEach(link => {
+                const img = document.createElement('img');
+                img.src = link.href.replace('?dl=0', '?raw=1'); // Adjust for direct image link
+                gallery.appendChild(img);
+            });
         }
+
+        fetchImages();
     </script>
 </body>
 </html>
+
 
