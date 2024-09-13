@@ -63,32 +63,37 @@
     <h1>My Portfolio</h1>
     <div class="gallery" id="gallery"></div>
 
-    <script>
-        function toggleMenu() {
-            var menuContent = document.getElementById('menuContent');
-            if (menuContent.style.display === 'block') {
-                menuContent.style.display = 'none';
-            } else {
-                menuContent.style.display = 'block';
-            }
+  <script>
+    function toggleMenu() {
+        var menuContent = document.getElementById('menuContent');
+        if (menuContent.style.display === 'block') {
+            menuContent.style.display = 'none';
+        } else {
+            menuContent.style.display = 'block';
         }
+    }
 
-        async function fetchImages() {
-            const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
-            const files = await response.json();
-            const gallery = document.getElementById('gallery');
+    async function fetchImages() {
+        const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
+        const files = await response.json();
+        const gallery = document.getElementById('gallery');
+        const existingImages = new Set();
 
-            files.forEach(file => {
-                if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
+        files.forEach(file => {
+            if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
+                if (!existingImages.has(file.download_url)) {
                     const img = document.createElement('img');
                     img.src = file.download_url;
                     gallery.appendChild(img);
+                    existingImages.add(file.download_url);
                 }
-            });
-        }
+            }
+        });
+    }
 
-        fetchImages();
-    </script>
+    fetchImages();
+</script>
+
 </body>
 </html>
 
