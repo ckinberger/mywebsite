@@ -74,7 +74,7 @@
         }
 
         async function fetchImages() {
-            const response = await fetch('https://api.github.com/repos/your-username/your-repo/contents/images');
+            const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
             const files = await response.json();
             const gallery = document.getElementById('gallery');
 
