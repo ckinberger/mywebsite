@@ -79,101 +79,36 @@
     <h1>C.KINBERGER</h1>
     <div class="gallery" id="gallery"></div>
 
-<style>
-        #gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
+ <script>
+    function toggleMenu() {
+        var menuContent = document.getElementById('menuContent');
+        if (menuContent.style.display === 'block') {
+            menuContent.style.display = 'none';
+        } else {
+            menuContent.style.display = 'block';
         }
-        #gallery img {
-            width: 100%;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        #gallery img:hover {
-            transform: scale(1.05);
-        }
-        .full-size {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .full-size img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div id="gallery"></div>
+    }
 
-    <script>
-        function toggleMenu() {
-            var menuContent = document.getElementById('menuContent');
-            if (menuContent.style.display === 'block') {
-                menuContent.style.display = 'none';
-            } else {
-                menuContent.style.display = 'block';
-            }
-        }
+    async function fetchImages() {
+        const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
+        const files = await response.json();
+        const gallery = document.getElementById('gallery');
+        const existingImages = new Set();
 
-        async function fetchImages() {
-            const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
-            const files = await response.json();
-            const gallery = document.getElementById('gallery');
-            const existingImages = new Set();
-
-            files.forEach(file => {
-                if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
-                    if (!existingImages.has(file.download_url)) {
-                        const img = document.createElement('img');
-                        img.src = file.download_url;
-                        img.addEventListener('click', () => expandImage(img.src));
-                        gallery.appendChild(img);
-                        existingImages.add(file.download_url);
-                    }
+        files.forEach(file => {
+            if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
+                if (!existingImages.has(file.download_url)) {
+                    const img = document.createElement('img');
+                    img.src = file.download_url;
+                    gallery.appendChild(img);
+                    existingImages.add(file.download_url);
                 }
-            });
-        }
+            }
+        });
+    }
 
-        function expandImage(src) {
-            const fullSizeDiv = document.createElement('div');
-            fullSizeDiv.classList.add('full-size');
-
-            const img = document.createElement('img');
-            img.src = src;
-            fullSizeDiv.appendChild(img);
-
-            const closeBtn = document.createElement('button');
-            closeBtn.textContent = 'X';
-            closeBtn.classList.add('close-btn');
-            closeBtn.addEventListener('click', () => {
-                document.body.removeChild(fullSizeDiv);
-            });
-            fullSizeDiv.appendChild(closeBtn);
-
-            document.body.appendChild(fullSizeDiv);
-        }
-
-        fetchImages();
-    </script>
-
+    fetchImages();
+</script>
 </body>
 </html>
 
