@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,17 @@
             margin: 0;
             padding: 0;
         }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
         .gallery img {
             width: 100%;
             height: auto;
-            margin: 10px 0;
+            cursor: pointer;
+            border: 2px solid black;
         }
         .menu {
             position: fixed;
@@ -49,68 +57,111 @@
         .menu-content a:hover {
             background-color: #555;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="floating-icons">
-    <a href="https://www.instagram.com/xdoomandgloomx" target="_blank">
-        <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/instagram-icon.PNG" alt="Instagram">
-    </a>
-    <a href="https://www.twitter.com/talismoon_art" target="_blank">
-        <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/x-icon.PNG" alt="Twitter">
-    </a>
-</div>
+        <a href="https://www.instagram.com/xdoomandgloomx" target="_blank">
+            <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/instagram-icon.PNG" alt="Instagram">
+        </a>
+        <a href="https://www.twitter.com/talismoon_art" target="_blank">
+            <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/x-icon.PNG" alt="Twitter">
+        </a>
+    </div>
 
-<style>
-    .floating-icons {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        gap: 10px;
-    }
-    .floating-icons img {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-    }
-</style>
+    <style>
+        .floating-icons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .floating-icons img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
 
     <h1>C.KINBERGER</h1>
     <div class="gallery" id="gallery"></div>
 
- <script>
-    function toggleMenu() {
-        var menuContent = document.getElementById('menuContent');
-        if (menuContent.style.display === 'block') {
-            menuContent.style.display = 'none';
-        } else {
-            menuContent.style.display = 'block';
-        }
-    }
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
-    async function fetchImages() {
-        const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
-        const files = await response.json();
-        const gallery = document.getElementById('gallery');
-        const existingImages = new Set();
-
-        files.forEach(file => {
-            if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
-                if (!existingImages.has(file.download_url)) {
-                    const img = document.createElement('img');
-                    img.src = file.download_url;
-                    gallery.appendChild(img);
-                    existingImages.add(file.download_url);
-                }
+    <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menuContent');
+            if (menuContent.style.display === 'block') {
+                menuContent.style.display = 'none';
+            } else {
+                menuContent.style.display = 'block';
             }
-        });
-    }
+        }
 
-    fetchImages();
-</script>
+        async function fetchImages() {
+            const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
+            const files = await response.json();
+            const gallery = document.getElementById('gallery');
+            const existingImages = new Set();
+
+            files.forEach(file => {
+                if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    if (!existingImages.has(file.download_url)) {
+                        const img = document.createElement('img');
+                        img.src = file.download_url;
+                        img.onclick = function() {
+                            openModal(this.src);
+                        };
+                        gallery.appendChild(img);
+                        existingImages.add(file.download_url);
+                    }
+                }
+            });
+        }
+
+        function openModal(src) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById('img01');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        fetchImages();
+    </script>
 </body>
 </html>
-
-
-
