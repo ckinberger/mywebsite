@@ -58,6 +58,18 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        h1, h2 {
+            color: #fff; /* Ensure headings are visible */
+        }
+        @media (max-width: 768px) {
+            header, .container, footer {
+                padding: 1rem;
+            }
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+        }
     </style>
 </head>
 <body>
