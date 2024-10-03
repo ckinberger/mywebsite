@@ -10,12 +10,14 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            transition: background-color 0.5s ease-in-out;
         }
         header {
-            background-color: #333;
+            background: url('header-background.jpg') no-repeat center center/cover;
             color: #fff;
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
+            animation: fadeIn 2s ease-in-out;
         }
         nav ul {
             list-style-type: none;
@@ -28,12 +30,20 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #ff9900;
         }
         .container {
             padding: 2rem;
         }
         .service {
             margin: 2rem 0;
+            transition: transform 0.3s ease-in-out;
+        }
+        .service:hover {
+            transform: scale(1.05);
         }
         footer {
             background-color: #333;
@@ -43,6 +53,10 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
