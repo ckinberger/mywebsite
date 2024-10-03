@@ -3,112 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINBERGER</title>
+    <title>Jumpin Jack Rentals LLC</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            margin: 10px 0;
-        }
-        .menu {
-            position: fixed;
-            top: 10px;
-            right: 10px;
+        header {
             background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
         }
-        .menu button {
-            background-color: #444;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .menu-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #444;
-            min-width: 160px;
-            z-index: 1;
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
         }
-        .menu-content a {
-            color: white;
-            padding: 12px 16px;
+        nav ul li a {
+            color: #fff;
             text-decoration: none;
-            display: block;
         }
-        .menu-content a:hover {
-            background-color: #555;
+        .container {
+            padding: 2rem;
+        }
+        .service {
+            margin: 2rem 0;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <div class="floating-icons">
-        <a href="https://www.instagram.com/xdoomandgloomx" target="_blank">
-            <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/instagram-icon.PNG" alt="Instagram">
-        </a>
-        <a href="https://www.twitter.com/talismoon_art" target="_blank">
-            <img src="https://raw.githubusercontent.com/ckinberger/mywebsite/main/icons/x-icon.PNG" alt="Twitter">
-        </a>
+    <header>
+        <h1>Jumpin Jack Rentals LLC</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to Jumpin Jack Rentals LLC</h2>
+            <p>Your premier choice for party and event rentals. We offer a variety of items to make your event unforgettable!</p>
+        </section>
+
+        <section id="services" class="service">
+            <h2>Our Services</h2>
+            <p>We provide the following rentals:</p>
+            <ul>
+                <li>LED Dance Floors</li>
+                <li>Lawn Games</li>
+                <li>Party Equipment</li>
+                <li>Decorations</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="service">
+            <h2>Contact Us</h2>
+            <p>Get in touch to book your rentals today!</p>
+            <p>Email: info@jumpinjackrentals.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </section>
     </div>
 
-    <style>
-        .floating-icons {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-        }
-        .floating-icons img {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-        }
-    </style>
-
-    <h1>C.KINBERGER</h1>
-    <div class="gallery" id="gallery"></div>
-
-    <script>
-        function toggleMenu() {
-            var menuContent = document.getElementById('menuContent');
-            if (menuContent.style.display === 'block') {
-                menuContent.style.display = 'none';
-            } else {
-                menuContent.style.display = 'block';
-            }
-        }
-
-        async function fetchImages() {
-            const response = await fetch('https://api.github.com/repos/ckinberger/mywebsite/contents/images');
-            const files = await response.json();
-            const gallery = document.getElementById('gallery');
-            const existingImages = new Set();
-
-            files.forEach(file => {
-                if (file.type === 'file' && /\.(jpe?g|png|gif)$/i.test(file.name)) {
-                    if (!existingImages.has(file.download_url)) {
-                        const img = document.createElement('img');
-                        img.src = file.download_url;
-                        gallery.appendChild(img);
-                        existingImages.add(file.download_url);
-                    }
-                }
-            });
-        }
-
-        fetchImages();
-    </script>
+    <footer>
+        <p>&copy; 2024 Jumpin Jack Rentals LLC. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-```
