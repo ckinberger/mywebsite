@@ -22,8 +22,7 @@ header {
 }
 
 .logo img {
-    width: 100%;
-    max-width: 300px;
+    max-width: 100%;
     height: auto;
 }
 
@@ -86,24 +85,4 @@ footer {
     background-color: #fff;
     color: #000;
     border-top: 1px solid #000;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo img {
-        max-width: 150px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 0.5em 0;
-    }
-
-    nav ul {
-        text-align: center;
-    }
-
-    main {
-        padding: 1em;
-    }
 }
