@@ -1,29 +1,67 @@
 /* styles.css */
-@keyframes ember {
+
+/* Existing CSS... */
+
+.ember-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.ember {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 69, 0, 0.8);
+    border-radius: 50%;
+    animation: ember-float 5s infinite;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.8);
+    mix-blend-mode: screen;
+}
+
+@keyframes ember-float {
     0% {
         transform: translateY(0) translateX(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(-100vh) translateX(calc(50vw - 20px));
+        transform: translateY(-500px) translateX(50px);
         opacity: 0;
     }
 }
 
-.ember {
-    position: absolute;
-    bottom: 0;
-    width: 5px;
-    height: 5px;
-    background-color: rgba(255, 69, 0, 0.8); /* Ember color */
-    border-radius: 50%;
-    animation: ember 5s linear infinite;
+/* Position embers randomly */
+.ember:nth-child(odd) {
+    animation: ember-float-odd 5s infinite;
 }
 
-.embers-container {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    overflow: hidden;
+.ember:nth-child(even) {
+    animation: ember-float-even 5s infinite;
+}
+
+@keyframes ember-float-odd {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px) translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes ember-float-even {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px) translateX(50px);
+        opacity: 0;
+    }
 }
