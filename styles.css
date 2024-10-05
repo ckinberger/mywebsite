@@ -1,67 +1,90 @@
 /* styles.css */
 
-/* Existing CSS... */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
 
-.ember-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+header {
+    background-color: #fff;
+    color: #000;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
+    max-width: 300px;
+    height: auto;
 }
 
-.ember {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background-color: rgba(255, 69, 0, 0.8);
-    border-radius: 50%;
-    animation: ember-float 5s infinite;
-    box-shadow: 0 0 8px rgba(255, 69, 0, 0.8);
-    mix-blend-mode: screen;
+nav ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-@keyframes ember-float {
-    0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-500px) translateX(50px);
-        opacity: 0;
-    }
+nav ul li {
+    display: inline;
+    margin: 0 1em;
 }
 
-/* Position embers randomly */
-.ember:nth-child(odd) {
-    animation: ember-float-odd 5s infinite;
+nav ul li a {
+    color: #000;
+    text-decoration: none;
 }
 
-.ember:nth-child(even) {
-    animation: ember-float-even 5s infinite;
+main {
+    padding: 2em;
 }
 
-@keyframes ember-float-odd {
-    0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-500px) translateX(-50px);
-        opacity: 0;
-    }
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@keyframes ember-float-even {
-    0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-500px) translateX(50px);
-        opacity: 0;
-    }
+.gallery-container img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 0.5em 0 0.2em;
+}
+
+form input, form textarea {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #000;
+}
+
+button {
+    padding: 0.7em;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #fff;
+    color: #000;
+    border-top: 1px solid #000;
 }
