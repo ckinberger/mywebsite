@@ -3,114 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumping Jack Rentals, LLC</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            transition: background-color 0.5s ease-in-out;
-        }
-        header {
-            background: url('header-background.jpg') no-repeat center center/cover;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-            animation: fadeIn 2s ease-in-out;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-        }
-        nav ul li a:hover {
-            color: #ff9900;
-        }
-        .container {
-            padding: 2rem;
-        }
-        .service {
-            margin: 2rem 0;
-            transition: transform 0.3s ease-in-out;
-        }
-        .service:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        h1, h2 {
-            color: #fff; /* Ensure headings are visible */
-        }
-        @media (max-width: 768px) {
-            header, .container, footer {
-                padding: 1rem;
-            }
-            nav ul li {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <title>Dragonwood Designs | Unique Fractal Wood Burning & Resin Art Gifts</title>
+    <meta name="description" content="Discover unique wood art, fractal wood burning designs, and resin art gifts at Dragonwood Designs. Perfect gifts for men and women, handcrafted with creativity.">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="keywords" content="Dragonwood Designs, wood art, fractal wood burning, resin art, unique gifts, handcrafted, gifts for men, gifts for women, custom wood designs, handcrafted gifts, unique home decor, woodworking art, custom resin art, rustic designs, artisan wood pieces, eco-friendly gifts, wood burn art, handmade fractal art, decorative wood crafts, artisanal wood gifts, custom woodworking, fantasy art decor, bespoke wood designs">
 </head>
 <body>
     <header>
-        <h1>Jumping Jack Rentals, LLC</h1>
+        <h1>Dragonwood Designs</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <div class="container">
+    <main>
         <section id="home">
-            <h2>Welcome to Jumping Jack Rentals, LLC</h2>
-            <p>Your premier choice for party and event rentals. We offer a variety of items to make your event unforgettable!</p>
+            <h2>Welcome to Dragonwood Designs</h2>
+            <p>Explore our collection of unique wood art, including fractal wood burning and resin designs. Handcrafted gifts for both men and women that bring a touch of fantasy to any space.</p>
         </section>
-
-        <section id="services" class="service">
-            <h2>Our Services</h2>
-            <p>We provide the following rentals:</p>
-            <ul>
-                <li>LED Dance Floors</li>
-                <li>Lawn Games</li>
-                <li>Party Equipment</li>
-                <li>Decorations</li>
-            </ul>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At Dragonwood Designs, we specialize in creating one-of-a-kind wood art pieces that combine the beauty of fractal wood burning with the elegance of resin. Each piece is handcrafted with care, making it a perfect gift for any occasion.</p>
         </section>
-
-        <section id="contact" class="service">
+        <section id="gallery">
+            <h2>Our Gallery</h2>
+            <div class="gallery-container">
+                <!-- SEO-friendly alt tags for images -->
+                <img src="example1.jpg" alt="Unique fractal wood burning art by Dragonwood Designs">
+                <img src="example2.jpg" alt="Handcrafted resin art piece by Dragonwood Designs">
+                <img src="example3.jpg" alt="Custom wood art gift for men and women by Dragonwood Designs">
+            </div>
+        </section>
+        <section id="contact">
             <h2>Contact Us</h2>
-            <p>Get in touch to book your rentals today!</p>
-            <p>Email: info@jumpingjackrentals.com</p>
-            <p>Phone: (123) 456-7890</p>
+            <form action="submit-form" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
-    </div>
-
+    </main>
     <footer>
-        <p>&copy; 2024 Jumping Jack Rentals, LLC. All rights reserved.</p>
+        <p>&copy; 2024 Dragonwood Designs. Unique Fractal Wood Burning & Resin Art Gifts.</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
