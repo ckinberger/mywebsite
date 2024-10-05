@@ -15,10 +15,38 @@ header {
     border-bottom: 1px solid #000;
 }
 
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 0;
+    display: inline-block;
+}
+
 .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 50px; /* Adjust padding to create space for fixed nav */
 }
 
 .logo img {
@@ -26,23 +54,9 @@ header {
     height: auto;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: #000;
-    text-decoration: none;
-}
-
 main {
     padding: 2em;
+    padding-top: 100px; /* Adjust padding to create space for fixed nav */
 }
 
 .gallery-container {
@@ -85,4 +99,24 @@ footer {
     background-color: #fff;
     color: #000;
     border-top: 1px solid #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo img {
+        max-width: 150px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    main {
+        padding: 1em;
+        padding-top: 150px; /* Adjust padding to create space for fixed nav */
+    }
 }
