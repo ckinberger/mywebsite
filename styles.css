@@ -90,16 +90,19 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header, nav ul li a, main, footer {
-        text-align: center;
-    }
     .logo img {
-        max-width: 200px;
+        max-width: 150px;
     }
+
     nav ul li {
         display: block;
         margin: 0.5em 0;
     }
+
+    nav ul {
+        text-align: center;
+    }
+
     main {
         padding: 1em;
     }
