@@ -13,6 +13,10 @@ header {
     padding: 1em 0;
     text-align: center;
     border-bottom: 1px solid #000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
 }
 
 .logo {
@@ -29,7 +33,7 @@ header {
 
 main {
     padding: 2em;
-    padding-top: 80px; /* Adjust padding to create space for fixed nav */
+    padding-top: 120px; /* Adjust padding to create space for fixed nav */
 }
 
 .gallery-container {
@@ -84,6 +88,10 @@ footer {
     background-color: #fff;
     flex-wrap: nowrap; /* Ensure the navigation stays on one line */
     overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-list li {
@@ -118,7 +126,7 @@ footer {
 
     main {
         padding: 1em;
-        padding-top: 120px; /* Adjust padding to create space for fixed nav */
+        padding-top: 160px; /* Adjust padding to create space for fixed nav */
     }
 }
 
