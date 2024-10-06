@@ -22,7 +22,9 @@ nav {
     width: 100%;
     background-color: #000;
     z-index: 1000;
+    height: 40px; /* Adjust height for a thin nav bar */
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -40,7 +42,7 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 1em;
+    padding: 0.5em 1em;
     display: block;
 }
 
@@ -58,7 +60,7 @@ nav ul li a {
 
 main {
     padding: 2em;
-    padding-top: 100px; /* Adjust padding to create space for fixed nav */
+    padding-top: 80px; /* Adjust padding to create space for fixed nav */
 }
 
 .gallery-container {
@@ -119,6 +121,6 @@ footer {
 
     main {
         padding: 1em;
-        padding-top: 150px; /* Adjust padding to create space for fixed nav */
+        padding-top: 120px; /* Adjust padding to create space for fixed nav */
     }
 }
