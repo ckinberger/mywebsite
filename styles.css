@@ -119,3 +119,16 @@ footer {
         padding-top: 120px; /* Adjust padding to create space for fixed nav */
     }
 }
+
+/* Additional Styles for Universal Compatibility */
+@supports (-webkit-touch-callout: none) {
+    .nav-list {
+        display: -webkit-flex;
+    }
+}
+
+@supports (-ms-ime-align: auto) {
+    .nav-list {
+        display: -ms-flexbox;
+    }
+}
