@@ -114,6 +114,12 @@ footer {
     main {
         padding: 1em;
     }
+
+    /* Add this */
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 /* Additional Styles for Universal Compatibility */
