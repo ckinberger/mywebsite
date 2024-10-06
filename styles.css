@@ -29,6 +29,7 @@ header {
 .logo img {
     max-width: 100%;
     height: auto;
+    display: block; /* Ensure the image does not float */
 }
 
 main {
