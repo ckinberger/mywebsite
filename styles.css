@@ -82,11 +82,13 @@ footer {
     display: flex;
     justify-content: center;
     background-color: #fff;
-    flex-wrap: wrap; /* Ensure the navigation adjusts to the device width */
+    flex-wrap: nowrap; /* Ensure the navigation stays on one line */
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
 }
 
 .nav-list li {
     margin: 0 1em;
+    white-space: nowrap; /* Prevent items from wrapping */
 }
 
 .nav-list a {
