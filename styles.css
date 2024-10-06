@@ -22,23 +22,6 @@ header {
     transform: translate3d(0, 0, 0);
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    padding: 1em 0;
-    position: fixed;
-    top: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1001; /* Higher than header */
-}
-
-.logo img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 main {
     padding: 2em;
     margin-top: 100px; /* Adjust this value as needed to account for fixed header */
@@ -120,10 +103,6 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .logo img {
-        max-width: 150px;
-    }
-
     .nav-list {
         flex-direction: row;
     }
