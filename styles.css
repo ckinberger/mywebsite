@@ -18,6 +18,8 @@ header {
     top: 0;
     z-index: 1000;
     -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .logo {
@@ -90,6 +92,9 @@ footer {
     background-color: #fff;
     flex-wrap: wrap;
     width: 100%;
+    position: fixed; /* Added to fix the navigation bar */
+    top: 0; /* Align to the top */
+    z-index: 1001; /* Higher than header */
 }
 
 .nav-list li {
