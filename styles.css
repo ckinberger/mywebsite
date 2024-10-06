@@ -26,6 +26,11 @@ header {
     display: flex;
     justify-content: center;
     padding: 1em 0;
+    position: fixed;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001; /* Higher than header */
 }
 
 .logo img {
@@ -94,7 +99,7 @@ footer {
     width: 100%;
     position: fixed; /* Added to fix the navigation bar */
     top: 0; /* Align to the top */
-    z-index: 1001; /* Higher than header */
+    z-index: 1002; /* Higher than header and logo */
 }
 
 .nav-list li {
