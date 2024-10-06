@@ -13,7 +13,7 @@ header {
     padding: 1em 0;
     text-align: center;
     border-bottom: 1px solid #000;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 1000;
     top: 0;
@@ -21,20 +21,18 @@ header {
 
 .logo {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px; /* Adjust padding to create space for fixed nav */
+    justify-content: center;
+    padding: 1em 0;
 }
 
 .logo img {
     max-width: 100%;
     height: auto;
-    display: block; /* Ensure the image does not float */
+    display: block;
 }
 
 main {
     padding: 2em;
-    padding-top: 120px; /* Adjust padding to create space for fixed nav */
 }
 
 .gallery-container {
@@ -88,18 +86,18 @@ footer {
     display: flex;
     justify-content: center;
     background-color: #fff;
-    flex-wrap: nowrap; /* Ensure the navigation stays on one line */
-    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid #000; /* Add border to create frame effect */
+    border-bottom: 1px solid #000;
 }
 
 .nav-list li {
     margin: 0 1em;
-    white-space: nowrap; /* Prevent items from wrapping */
+    white-space: nowrap;
 }
 
 .nav-list a {
@@ -120,16 +118,15 @@ footer {
     }
 
     .nav-list {
-        flex-direction: row; /* Keep items horizontal on smaller screens */
+        flex-direction: row;
     }
 
     .nav-list li {
-        margin: 0.5em 1em; /* Adjust margin to keep items horizontal */
+        margin: 0.5em 1em;
     }
 
     main {
         padding: 1em;
-        padding-top: 160px; /* Adjust padding to create space for fixed nav */
     }
 }
 
