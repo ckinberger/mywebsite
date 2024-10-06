@@ -93,6 +93,7 @@ footer {
     top: 0;
     width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid #000; /* Add border to create frame effect */
 }
 
 .nav-list li {
@@ -118,7 +119,7 @@ footer {
     }
 
     .nav-list {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: row; /* Keep items horizontal on smaller screens */
     }
 
     .nav-list li {
